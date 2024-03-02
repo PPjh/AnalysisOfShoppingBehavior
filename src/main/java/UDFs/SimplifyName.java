@@ -16,8 +16,12 @@ public class SimplifyName extends GenericUDF {
     @Override
     public ObjectInspector initialize(ObjectInspector[] arguments) throws UDFArgumentException {
         // 参数长度判断
-        if(arguments.length > 0){
-            throw new UDFArgumentLengthException("此函数只作用于<dwd_AOfSb>表的<name>列，不需要输入参数");
+        if(arguments.length != 1){
+            throw new UDFArgumentLengthException("传入的数据参数的长度不正确!");
+        }
+        // 判断输入参数的类型
+        if(!arguments[0].getCategory().equals(ObjectInspector.Category.PRIMITIVE)){
+            throw new UDFArgumentTypeException(0,"输入的参数类型不正确!!!");
         }
         return PrimitiveObjectInspectorFactory.javaStringObjectInspector;
     }
