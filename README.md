@@ -1,2 +1,2 @@
 简单利用hive建立数仓并进行数据分析的项目
-原始数据在resource中
+原始数据、使用到的hsql代码及datax用到的json文件在resource中
