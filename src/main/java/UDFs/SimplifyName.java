@@ -28,22 +28,7 @@ public class SimplifyName extends GenericUDF {
 
     @Override
     public Object evaluate(DeferredObject[] arguments) throws HiveException {
-/*
-        if(deferredObjects[0].get() == null){
-            return "" ;
-        }
-        String data = deferredObjects[0].get().toString();
-        int index = data.indexOf("?");
-        if(index > 0 ){
-            data = data.substring(0,index);
-        }
-
-        if (data.startsWith("https://")){
-            data=data.replaceFirst("https://","http://");
-        }
-
-        return new Text(data.getBytes(StandardCharsets.UTF_8));
-*/
+//        将名称简化，剔除掉名称后面带有的括号及括号内数字
         String patternStr =  "\\(.*?\\)";
         if(arguments[0].get() == null){
             return "" ;

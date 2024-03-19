@@ -42,9 +42,8 @@ import org.codehaus.jackson.type.JavaType;
                 + "  [,] : Union operator\n"
                 + "  [start:end:step] : array slice operator\n")
 
-//定义了一个名为UDFJson的类，继承自UDF类。
 public class UDFGetJsonObjectCN extends UDF {
-    //private final Pattern patternKey = Pattern.compile("^([a-zA-Z0-9_\\-\\:\\s]+).*");
+//    重写hive自带函数使其能够识别中文
     private final Pattern patternKey = Pattern.compile("^([^\\[\\]]+).*");
     private final Pattern patternIndex = Pattern.compile("\\[([0-9]+|\\*)\\]");
 
